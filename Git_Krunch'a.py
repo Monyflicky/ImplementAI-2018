@@ -5,6 +5,66 @@ Created on Sun Sep 30 10:01:19 2018
 
 @author: jackattack
 """
+import plac
+import random
+from pathlib import Path
+import spacy
+
+def IndexBegEnd(s1: str, s2:str) -> list:
+    n = len(s1)
+    m = len(s2)
+    if n > m:
+        b = s1.find(s2)
+        e = b+m+1
+        l = [b, e]
+        return l
+    else:
+        return []
+
+
+myName = ingrList[i]
+   
+LABEL = 'FOOD'
+
+TRAIN_DATA = [
+    ('5 white onions, peeled and chopped', {
+        'entities': [(IndexBegEnd('5 white onions, peeled and chopped', 'onions')[0], IndexBegEnd('5 white onions, peeled and chopped', 'onions')[1], 'FOOD')]
+    }),
+    ('A large enough quantity of tomatoes', {
+        'entities': [(IndexBegEnd('A large enough quantity of tomatoes', 'tomatoes')[0], IndexBegEnd('A large enough quantity of tomatoes', 'tomatoes')[1], 'FOOD')]
+    }),
+    ('myRandomSentence()', {
+        'entities': []
+    }),
+    ('peppers!', {
+        'entities': [(IndexBegEnd('peppers!', 'peppers')[0], IndexBegEnd('peppers!', 'peppers')[1], 'FOOD')]
+    }),
+
+    ('myRandomSentence', {
+        'entities': []
+    }),
+    
+    ('3 cloves of garlic, minced', {
+        'entities': [(IndexBegEnd('3 cloves of garlic, minced', 'garlic')[0], IndexBegEnd('3 cloves of garlic, minced', 'garlic')[1], 'FOOD')]
+    }),
+    
+    ('2 pounds uncooked shrimp, peeled and deveined', {
+        'entities': [(IndexBegEnd('2 pounds uncooked shrimp, peeled and deveined', 'shrimp')[0], IndexBegEnd('2 pounds uncooked shrimp, peeled and deveined', 'shrimp')[1], 'FOOD')]
+    }),
+    
+    ('1 small bunch fresh basil, finely chopped', {
+        'entities': [(IndexBegEnd('1 small bunch fresh basil, finely chopped', 'basil')[0], IndexBegEnd('1 small bunch fresh basil, finely chopped', 'basil')[1], 'FOOD')]
+    }),
+    
+    ('1 small bunch fresh basil, finely chopped', {
+        'entities': [(IndexBegEnd('1 small bunch fresh basil, finely chopped', 'basil')[0], IndexBegEnd('1 small bunch fresh basil, finely chopped', 'basil')[1], 'FOOD')]
+    }),
+    
+    ('6 ears corn, husked and cleaned', {
+        'entities': [(IndexBegEnd('6 ears corn, husked and cleaned', 'corn')[0], IndexBegEnd('6 ears corn, husked and cleaned', 'corn')[1], 'FOOD')]
+    }),
+     
+   ]
 
 @plac.annotations(
     model=("Model name. Defaults to blank 'en' model.", "option", "m", str),
